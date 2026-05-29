@@ -1,4 +1,72 @@
+@media (max-width: 768px) {
+    #mainPage {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px 15px;
+        gap: 18px;
+        text-align: center;
+    }
 
+    .animated-heading {
+        position: relative !important;
+        top: 0 !important;
+        left: 0 !important;
+        bottom: auto !important;
+        transform: none !important;
+        font-size: clamp(1.6rem, 6.5vw, 2.6rem);
+        line-height: 1.4;
+        margin: 0;
+        width: 100%;
+    }
+
+    .animated-heading .line span {
+        transform: translateX(0) translateZ(0) !important;
+    }
+
+    .salam-container {
+        position: relative !important;
+        top: 0 !important;
+        margin: 8px 0 18px 0 !important;
+        padding: 0;
+        text-align: center;
+    }
+
+    .word {
+        font-size: clamp(1.4rem, 5.5vw, 2.2rem);
+        margin: 0 3px;
+    }
+
+    .content-love {
+        position: relative !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        transform: none !important;
+        width: 100%;
+        max-width: 450px;
+        padding: 0;
+        gap: 18px;
+        margin-top: 5px;
+    }
+
+    .text-3d-only {
+        font-size: clamp(0.85rem, 3.8vw, 1.1rem);
+        white-space: normal !important;
+        line-height: 1.6;
+        top: 0 !important;
+        text-align: center;
+    }
+
+    .greeting-btn {
+        position: relative !important;
+        top: 0 !important;
+        margin-top: 8px !important;
+        padding: 14px 38px;
+        font-size: 1rem;
+    }
+}
 
 
 * {
