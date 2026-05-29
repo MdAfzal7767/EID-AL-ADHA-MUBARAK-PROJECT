@@ -1301,7 +1301,7 @@ body {
     }
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     .wrapper {
         padding: 0 15px;
     }
@@ -1398,7 +1398,7 @@ body {
     .social-box { padding: 8px 5px; min-height: 68px; }
     .social-icon { font-size: 1.3rem; }
     .social-name { font-size: 0.58rem; }
-}
+} */
 
 @media (max-width: 480px) {
     .animated-heading {
