@@ -496,61 +496,6 @@ body {
     85.68% { border-color: #9400d3; }
     100% { border-color: #ff0000; }
 }
-
-/* DESKTOP + TABLET */
-.fixed-star {
-    position: absolute !important;
-    top: clamp(8px, 1.5vw, 15px) !important; /* screen ke hisab se */
-    left: 51% !important;
-    transform: translateX(-90%) !important;
-    font-size: clamp(1.5rem, 3vw, 2.5rem) !important; /* responsive size */
-    color: #e6e5df !important;
-    text-shadow: 0 0 clamp(15px, 2vw, 25px) rgb(202, 201, 197) !important;
-    z-index: 35 !important;
-    line-height: 1 !important;
-}
-
-.moon-icon {
-    position: absolute !important;
-    top: clamp(0px, 0.5vw, 5px) !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    font-size: clamp(2.5rem, 5vw, 4rem) !important; /* tumhara wala */
-    filter: drop-shadow(0 0 clamp(40px, 6vw, 75px) rgb(0, 255, 128)) !important;
-    z-index: 30 !important;
-    line-height: 1 !important;
-}
-
-/* MOBILE - 768px se neeche */
-@media (max-width: 768px) {
-    .fixed-star {
-        top: 10px !important;
-        transform: translateX(-85%) !important; /* mobile me thoda adjust */
-        font-size: 1.8rem !important;
-        text-shadow: 0 0 18px rgb(202, 201, 197) !important;
-    }
-    
-    .moon-icon {
-        top: 2px !important;
-        font-size: 2.5rem !important;
-        filter: drop-shadow(0 0 40px rgb(0, 255, 128)) !important;
-    }
-}
-
-/* CHHOTE MOBILE - 480px se neeche */
-@media (max-width: 480px) {
-    .fixed-star {
-        top: 8px !important;
-        font-size: 1.5rem !important;
-        transform: translateX(-80%) !important;
-    }
-    
-    .moon-icon {
-        font-size: 2.2rem !important;
-    }
-}
-
-
 /* .fixed-star {
     position: absolute;
     top: 10px;
@@ -571,6 +516,61 @@ body {
     filter: drop-shadow(0 0 75px rgb(0, 255, 128));
     z-index: 30;
 } */
+
+.fixed-star {
+    position: absolute;
+    top: 10px;
+    left: 51%;
+    transform: translateX(-90%);
+    font-size: 2rem;
+    color: #e6e5df;
+    text-shadow: 0 0 25px rgb(202, 201, 197);
+    z-index: 35;
+}
+
+.moon-icon {
+    position: absolute;
+    top: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    filter: drop-shadow(0 0 75px rgb(0, 255, 128));
+    z-index: 30;
+}
+
+
+
+
+/* MOBILE - 768px se neeche */
+@media (max-width: 768px) {
+    .fixed-star {
+        top: 10px !important;
+        transform: translateX(-85%) !important; /* mobile me thoda adjust */
+        font-size: 1.8rem !important;
+        text-shadow: 0 0 18px rgb(202, 201, 197) !important;
+    }
+    
+    .moon-icon {
+        top: -2px !important;
+        font-size: 2.5rem !important;
+        filter: drop-shadow(0 0 40px rgb(0, 255, 128)) !important;
+    }
+}
+
+/* CHHOTE MOBILE - 480px se neeche */
+@media (max-width: 480px) {
+    .fixed-star {
+        top: 8px !important;
+        font-size: 1.5rem !important;
+        transform: translateX(-80%) !important;
+    }
+    
+    .moon-icon {
+        font-size: 2.2rem !important;
+    }
+}
+
+
 
 .eid-heading {
     font-family: 'Amiri', serif;
