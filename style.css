@@ -1497,14 +1497,4 @@ body {
 }
 
 
-/* MOBILE KE LIYE - RIGHT SIDE STAR CODE */
-@media (max-width: 768px) {
-    .fixed-star {
-        position: absolute !important;
-        top: 8px !important;
-        left: 50% !important;
-        transform: translateX(10px) !important; /* 10px right me shift */
-        font-size: 0.9rem !important;
-        z-index: 3 !important;
-    }
-}
+
