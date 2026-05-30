@@ -1264,7 +1264,7 @@ body {
     /* BOX HALKA CHAUDA KIYA */
     .eid-stack-container {
         width: 92% !important;
-        max-width: 420px !important;
+        max-width: 460px !important;
         transform: scale(0.86);
         transform-origin: center;
     }
