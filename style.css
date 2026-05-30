@@ -1418,3 +1418,80 @@ body {
         padding: 22px 20px 48px 20px !important;
     }
 }
+
+
+/* DESKTOP + MOBILE DONO KE LIYE */
+.eid-main-box {
+    position: relative;
+}
+
+/* MOON + STAR EK KE UPAR EK */
+.moon-icon {
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.8rem;
+    z-index: 2;
+}
+
+.fixed-star {
+    position: absolute;
+    top: -2px; /* moon ke bilkul upar */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1rem; /* STAR CHHOTA */
+    z-index: 3;
+}
+
+/* ANIMALS NEECHE SHIFT */
+.animals-container {
+    margin-top: 30px !important; /* heading ke neeche */
+}
+
+/* ========== MOBILE CODE ========== */
+@media (max-width: 768px) {
+    body { padding: 0 !important; }
+    
+    .eid-stack-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        transform: scale(0.9);
+    }
+    
+    .eid-main-box {
+        padding: 40px 28px 50px 28px !important; /* upar space star ke liye */
+    }
+    
+    .moon-icon {
+        font-size: 1.6rem !important;
+        top: 8px !important;
+    }
+    
+    .fixed-star {
+        font-size: 0.85rem !important; /* MOBILE ME AUR CHHOTA */
+        top: 4px !important;
+    }
+    
+    .eid-heading {
+        margin: 35px 0 10px 0 !important;
+    }
+    
+    .animals-container {
+        margin-top: 25px !important; /* NEECHE AAYA */
+        font-size: 1.6rem !important;
+        gap: 12px !important;
+    }
+    
+    .eid-message, .eid-footer {
+        padding: 0 18px !important;
+    }
+    
+    .corner-sparkle-1 { left: 12px !important; top: 50px !important; }
+    .corner-sparkle-2 { right: 12px !important; top: 60px !important; }
+}
+
+@media (max-width: 480px) {
+    .eid-stack-container { transform: scale(0.88); }
+    .eid-main-box { padding: 40px 22px 50px 22px !important; }
+}
