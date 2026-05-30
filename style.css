@@ -1248,10 +1248,10 @@ body {
 
 
 
-/* ========== MOBILE - HALKA CHAUDA KIYA ========== */
+/* ========== MOBILE - LEFT RIGHT SE BADA KIYA ========== */
 @media (max-width: 768px) {
     .wrapper {
-        padding: 0 12px;
+        padding: 0 !important; /* side padding hata diya */
     }
 
     .mode-box {
@@ -1261,25 +1261,28 @@ body {
         font-size: 9px !important;
     }
 
-    /* BOX HALKA CHAUDA KIYA */
+    /* BOX LEFT RIGHT SE BADA */
     .eid-stack-container {
-        width: 96% !important;
-        max-width: 460px !important;
-        transform: scale(0.86);
+        width: 100% !important;
+        max-width: 100% !important;
+        transform: scale(0.9);
         transform-origin: center;
+        margin: 0 auto;
     }
     
     .top-blue-box {
         height: 75px !important;
         font-size: clamp(1.8rem, 5.5vw, 2.3rem) !important;
         border: 7px solid #ff0000 !important;
+        border-radius: 25px 25px 0 0 !important;
     }
     
     .eid-main-box {
-        padding: 22px 18px 48px 18px !important;
+        padding: 22px 25px 48px 25px !important; /* left right padding bada diya */
         min-height: auto !important;
         border: 7px solid #ff9800 !important;
         border-top: none !important;
+        border-radius: 0 0 25px 25px !important;
     }
     
     .moon-icon {
@@ -1307,36 +1310,36 @@ body {
         font-size: clamp(0.7rem, 3.2vw, 0.95rem) !important;
         line-height: 1.45 !important;
         margin: 8px 0 !important;
-        padding: 0 10px !important;
+        padding: 0 16px !important; /* text ke liye bhi padding badhaya */
         text-shadow: 0 2px 0 #fff, 0 4px 6px rgba(0,0,0,0.5) !important;
     }
     
     .eid-footer {
         font-size: clamp(0.8rem, 3.5vw, 1.05rem) !important;
         margin: 6px 0 38px 0 !important;
-        padding: 0 10px !important;
+        padding: 0 16px !important;
         text-shadow: 0 2px 0 #fff, 0 4px 6px rgba(0,0,0,0.5) !important;
     }
     
     .corner-sparkle {
-        font-size: 1.5rem !important;
+        font-size: 1.3rem !important;
     }
     
     .corner-sparkle-1 { 
         top: 35px !important; 
-        left: 25px !important; 
+        left: 18px !important; 
     }
     .corner-sparkle-2 { 
         top: 50px !important; 
-        right: 25px !important; 
+        right: 18px !important; 
     }
     .corner-sparkle-3 { 
         bottom: 50px !important; 
-        left: 20px !important; 
+        left: 15px !important; 
     }
     .corner-sparkle-4 { 
         bottom: 48px !important; 
-        right: 20px !important; 
+        right: 15px !important; 
     }
     
     .back-btn, .NAME-btn {
@@ -1348,22 +1351,26 @@ body {
     }
     
     .back-btn {
-        left: 5% !important;
+        left: 4% !important;
         border: 5px solid #FFD700 !important;
     }
     
     .NAME-btn {
-        right: 5% !important;
+        right: 4% !important;
     }
     
     #salamPage {
-        padding: 15px !important;
+        padding: 0 !important;
     }
 }
 
 @media (max-width: 480px) {
     .eid-stack-container {
-        width: 94% !important;
-        transform: scale(0.84);
+        width: 100% !important;
+        transform: scale(0.88);
+    }
+    
+    .eid-main-box {
+        padding: 22px 20px 48px 20px !important;
     }
 }
