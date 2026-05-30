@@ -1471,7 +1471,7 @@ body {
     .fixed-star {
         font-size: 0.85rem !important; /* MOBILE ME AUR CHHOTA */
         top: 4px !important;
-         transform: translateX(5px) !important; /* 5px right me shift */
+         transform: translateX(-5px) !important; /* -5px right me shift */
     }
     
     .eid-heading {
