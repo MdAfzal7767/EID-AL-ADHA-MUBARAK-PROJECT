@@ -546,7 +546,7 @@ body {
     .fixed-star {
         top: 10px !important;
         transform: translateX(-85%) !important; /* mobile me thoda adjust */
-        font-size: .98rem !important;
+        font-size: 2rem !important;
         text-shadow: 0 0 18px rgb(202, 201, 197) !important;
     }
     
@@ -561,7 +561,7 @@ body {
 @media (max-width: 480px) {
     .fixed-star {
         top: 8px !important;
-        font-size: 1.5rem !important;
+        font-size: 1rem !important;
         transform: translateX(-80%) !important;
     }
     
