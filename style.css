@@ -557,7 +557,7 @@ body {
     }
 }
 
-/* /* CHHOTE MOBILE - 480px se neeche */
+/* CHHOTE MOBILE - 480px se neeche */
 @media (max-width: 480px) {
     .fixed-star {
         top: 8px !important;
@@ -568,7 +568,7 @@ body {
     .moon-icon {
         font-size: 2.2rem !important;
     }
-} */
+}
 
 
 
