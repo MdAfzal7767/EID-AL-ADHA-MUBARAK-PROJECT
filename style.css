@@ -1498,24 +1498,44 @@ body {
 }
 
 
-/* MOBILE - MOON + STAR IMAGE JAISA */
+
+/* WRAPPER ZARURI HAI */
+.moon-star-wrapper {
+    position: relative !important;
+    display: inline-block !important;
+    width: fit-content !important;
+}
+
+/* MOON NICHE LAYER */
+.moon-icon {
+    position: relative !important;
+    font-size: 3rem !important;
+    line-height: 1 !important;
+    z-index: 1 !important;
+}
+
+/* STAR UPAR RIGHT ME */
+.fixed-star {
+    position: absolute !important;
+    top: -8px !important; /* moon ke upar */
+    left: 50% !important;
+    transform: translateX(6px) !important; /* right me */
+    font-size: 1.2rem !important;
+    color: #ffd700 !important;
+    filter: drop-shadow(0 0 8px #ffd700) !important;
+    z-index: 3 !important; /* moon ke upar rahega */
+    line-height: 1 !important;
+}
+
+/* MOBILE */
 @media (max-width: 768px) {
     .moon-icon {
-        position: absolute !important;
-        top: 12px !important;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        font-size: 2rem !important; /* moon size */
-        z-index: 2 !important;
+        font-size: 2.2rem !important;
     }
     
     .fixed-star {
-        position: absolute !important;
-        top: 5px !important; /* moon ke upar */
-        left: 50% !important;
-        transform: translateX(8px) !important; /* moon ke right corner pe */
-        font-size: 0.8rem !important; /* star chhota */
-        z-index: 3 !important;
-        line-height: 1 !important;
+        top: -6px !important;
+        transform: translateX(5px) !important;
+        font-size: 0.9rem !important;
     }
 }
