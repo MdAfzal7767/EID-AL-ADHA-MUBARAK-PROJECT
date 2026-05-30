@@ -1369,6 +1369,50 @@ body {
         width: 100% !important;
         transform: scale(0.88);
     }
+
+
+    /* ========== MOBILE - BOX LEFT RIGHT SE CHAUDA ========== */
+@media (max-width: 768px) {
+    body {
+        padding: 0 !important; /* side space hatao */
+    }
+    
+    .eid-stack-container {
+        width: 100% !important; /* full width */
+        max-width: 100% !important;
+        transform: scale(0.9); /* thoda chhota scale taaki fit ho */
+        margin: 0 auto;
+    }
+    
+    .eid-main-box {
+        padding: 25px 28px 50px 28px !important; /* left-right padding badhaya */
+    }
+    
+    .eid-message {
+        padding: 0 18px !important; /* text bhi chauda */
+    }
+    
+    .eid-footer {
+        padding: 0 18px !important;
+    }
+    
+    .corner-sparkle-1 { left: 12px !important; }
+    .corner-sparkle-2 { right: 12px !important; }
+    .corner-sparkle-3 { left: 10px !important; }
+    .corner-sparkle-4 { right: 10px !important; }
+    
+    .back-btn { left: 3% !important; }
+    .name-btn { right: 3% !important; }
+}
+
+@media (max-width: 480px) {
+    .eid-stack-container {
+        transform: scale(0.88);
+    }
+    .eid-main-box {
+        padding: 25px 22px 50px 22px !important;
+    }
+}
     
     .eid-main-box {
         padding: 22px 20px 48px 20px !important;
