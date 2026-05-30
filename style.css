@@ -1425,7 +1425,7 @@ body {
     position: relative;
 }
 
-/* MOON + STAR EK KE UPAR EK */
+/* /* MOON + STAR EK KE UPAR EK */
 .moon-icon {
     position: absolute;
     top: 5px;
@@ -1442,7 +1442,7 @@ body {
     transform: translateX(-50%);
     font-size: 1rem; /* STAR CHHOTA */
     z-index: 3;
-}
+} */
 
 /* ANIMALS NEECHE SHIFT */
 .animals-container {
@@ -1463,17 +1463,17 @@ body {
         padding: 40px 28px 50px 28px !important; /* upar space star ke liye */
     }
     
-    .moon-icon {
+    /* .moon-icon {
         font-size: 1.6rem !important;
         top: 8px !important;
     }
     
-    /* .fixed-star {
+    .fixed-star {
         font-size: 0.85rem !important; /* MOBILE ME AUR CHHOTA */
         top: 4px !important;
          transform: translateX(-5px) !important; /* -5px right me shift */
-    }
-     */
+    } */
+    
     .eid-heading {
         margin: 35px 0 10px 0 !important;
     }
@@ -1499,43 +1499,3 @@ body {
 
 
 
-/* WRAPPER ZARURI HAI */
-.moon-star-wrapper {
-    position: relative !important;
-    display: inline-block !important;
-    width: fit-content !important;
-}
-
-/* MOON NICHE LAYER */
-.moon-icon {
-    position: relative !important;
-    font-size: 3rem !important;
-    line-height: 1 !important;
-    z-index: 1 !important;
-}
-
-/* STAR UPAR RIGHT ME */
-.fixed-star {
-    position: absolute !important;
-    top: -8px !important; /* moon ke upar */
-    left: 50% !important;
-    transform: translateX(6px) !important; /* right me */
-    font-size: 1.2rem !important;
-    color: #ffd700 !important;
-    filter: drop-shadow(0 0 8px #ffd700) !important;
-    z-index: 3 !important; /* moon ke upar rahega */
-    line-height: 1 !important;
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-    .moon-icon {
-        font-size: 2.2rem !important;
-    }
-    
-    .fixed-star {
-        top: -6px !important;
-        transform: translateX(5px) !important;
-        font-size: 0.9rem !important;
-    }
-}
