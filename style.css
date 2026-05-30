@@ -656,11 +656,39 @@ body {
 
 
 
+/* ========== EID CARD - DESKTOP + MOBILE ========== */
+
+/* Main Card */
+.eid-main-box, .eid-stack-container {
+    position: relative !important;
+    min-height: 100vh;
+    padding: 20px;
+    overflow: hidden;
+}
+
+/* Text Double Hatane ke liye */
+.eid-message, .wishing-text, h1, h2 {
+    text-shadow: none !important;
+    filter: none !important;
+    color: #8b2c91 !important;
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* Agar duplicate text ho to auto hide */
+.eid-message + .eid-message, 
+.wishing-text + .wishing-text {
+    display: none !important;
+}
+
+/* Sparkle Base */
 .corner-sparkle {
     position: absolute;
     font-size: 2rem;
     animation: sparkle 2s infinite;
-    z-index: 20;
+    z-index: 3;
 }
 
 .corner-sparkle-1 { top: 45px; left: 45px; animation-delay: 1.5s; }
@@ -673,21 +701,80 @@ body {
     50% { opacity: 1; transform: scale(2.3) rotate(180deg); }
 }
 
-/* MOBILE FIX */
+/* Buttons Base */
+.back-btn, .CREATE-Bte {
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+/* ========== MOBILE FIX - 600px se niche ========== */
 @media (max-width: 600px) {
-    .corner-sparkle {
-        font-size: 1.2rem; /* Mobile me chhota karo */
-        z-index: 5; /* Button ke niche rahe */
+    
+    .eid-main-box {
+        padding: 15px 10px;
+        padding-bottom: 80px !important; /* Button ki jagah */
     }
     
-    .corner-sparkle-1 { top: 20px; left: 20px; } /* Upar left corner */
-    .corner-sparkle-2 { top: 25px; right: 20px; } /* Upar right corner */
-    .corner-sparkle-3 { bottom: 70px; left: 15px; } /* Niche left, button se upar */
-    .corner-sparkle-4 { bottom: 70px; right: 15px; } /* Niche right, button se upar */
+    /* Text size mobile me */
+    .eid-message, .wishing-text {
+        font-size: 0.95rem !important;
+        margin-bottom: 15px !important;
+    }
+    
+    h1, h2 {
+        font-size: 1.4rem !important;
+        margin-bottom: 20px !important;
+    }
+    
+    /* Sparkle 4 Kone me, chhota */
+    .corner-sparkle {
+        font-size: 1.4rem !important;
+        z-index: 3 !important;
+    }
+    
+    .corner-sparkle-1 { top: 20px; left: 20px; }
+    .corner-sparkle-2 { top: 25px; right: 20px; }
+    .corner-sparkle-3 { bottom: 90px; left: 20px; } /* Button se upar */
+    .corner-sparkle-4 { bottom: 90px; right: 20px; }
     
     @keyframes sparkle {
         0%, 100% { opacity: 0.5; transform: scale(1) rotate(0deg); }
-        50% { opacity: 0.8; transform: scale(1.6) rotate(180deg); } /* Mobile me kam zoom */
+        50% { opacity: 0.8; transform: scale(1.6) rotate(180deg); }
+    }
+    
+    /* Back Button - Left Niche */
+    .back-btn {
+        position: absolute !important;
+        bottom: 15px !important;
+        left: 5% !important;
+        padding: 10px 18px !important;
+        font-size: 0.75rem !important;
+        border-radius: 22px !important;
+        background: linear-gradient(135deg, #ffd700, #ffb700) !important;
+        margin: 0 !important;
+        transform: none !important;
+        z-index: 20;
+    }
+    
+    /* CREATE Button - Right Niche */
+    .CREATE-Bte {
+        position: absolute !important;
+        bottom: 15px !important;
+        right: 5% !important;
+        left: auto !important;
+        padding: 10px 18px !important;
+        font-size: 0.7rem !important;
+        border-radius: 22px !important;
+        background: linear-gradient(135deg, #8bc378, #6da85a) !important;
+        border: 2px solid #8bc378 !important;
+        margin: 0 !important;
+        margin-top: 0 !important;
+        transform: none !important;
+        animation: none !important;
+        white-space: nowrap !important;
+        max-width: 55% !important;
+        z-index: 20;
     }
 }
 
