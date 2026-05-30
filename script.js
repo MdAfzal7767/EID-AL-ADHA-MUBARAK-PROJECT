@@ -1,9 +1,13 @@
  // PARTICLES - SAB JAGAH DIKHENGE
-function createMoon() {
-    console.log('Chand ban raha hai'); // Check karne ke liye
-    
+function createMoon(tiltAngle = -25) {  // default -25deg
+    console.log('Chand ban raha hai');
+
     const moon = document.createElement('div');
     moon.classList.add('falling-moon');
+    
+    // Yahan tilt set kar diya
+    moon.style.setProperty('--moon-tilt', tiltAngle + 'deg');
+    
     const uniqueId = 'moonMask' + Date.now() + Math.random();
     moon.innerHTML = `
         <svg viewBox="0 0 100 100" width="45" height="45">
@@ -16,20 +20,14 @@ function createMoon() {
             <circle cx="50" cy="50" r="48" fill="white" mask="url(#${uniqueId})"/>
         </svg>
     `;
+    
     moon.style.left = Math.random() * 95 + '%';
     moon.style.animationDuration = (Math.random() * 5 + 15) + 's';
     
-    // Check kar ki particles-bg mil raha hai ya nahi
-    const bg = document.getElementById('particles-bg');
-    if(bg) {
-        bg.appendChild(moon);
-    } else {
-        document.body.appendChild(moon); // Agar na mile to body mein daal de
-    }
+    document.body.appendChild(moon);
     
-    setTimeout(() => moon.remove(), 25000);
+    setTimeout(() => moon.remove(), 20000);
 }
-
 // YE LINE HAI YA NAHI CHECK KAR
 setInterval(createMoon, 2200);
 
@@ -155,3 +153,46 @@ function createFallingStar() {
             card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale(1)';
         });
     });
+
+
+
+
+    // EID INFO POPUP LOGIC
+const eidInfoBtn = document.getElementById('eidInfoBtn');
+const eidInfoPopup = document.getElementById('eidInfoPopup');
+const closeEidInfo = document.getElementById('closeEidInfo');
+
+eidInfoBtn.addEventListener('click', function() {
+    eidInfoPopup.style.display = 'flex';
+});
+
+function closeEidPopup() {
+    eidInfoPopup.style.display = 'none';
+}
+
+closeEidInfo.addEventListener('click', closeEidPopup);
+
+eidInfoPopup.addEventListener('click', function(e) {
+    if(e.target === eidInfoPopup) {
+        closeEidPopup();
+    }
+});
+
+// 3D TILT EFFECT FOR CARDS
+document.querySelectorAll('.section-card').forEach(card => {
+    card.addEventListener('mousemove', function(e) {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = (y - centerY) / 60;
+        const rotateY = (centerX - x) / 60;
+        
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-3px) scale(1.005)`;
+    });
+    
+    card.addEventListener('mouseleave', function() {
+        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale(1)';
+    });
+});
