@@ -22,7 +22,7 @@ body {
     position: fixed;
     width: 100%;
     height: 100%;
-    background: radial-gradient(ellipse at 50% 30%, #112240 0%, #0a192f 40%, #020c1b 100%);
+    /* background: radial-gradient(ellipse at 50% 30%, #112240 0%, #0a192f 40%, #020c1b 100%); */
     z-index: 1;
 }
 
@@ -52,16 +52,21 @@ body {
     filter: drop-shadow(0 0 30px rgba(255, 255, 255, 1)) 
             drop-shadow(0 0 60px rgba(255, 255, 255, 0.8))
             drop-shadow(0 0 100px rgba(173, 216, 230, 0.6));
-    transform: rotate(145deg) translateZ(30px);
+    transform: rotate(var(--moon-tilt, -25deg)) translateZ(80px);
 }
 
 @keyframes moonFall {
-    0% { transform: translateY(-100vh) rotate(225deg) translateZ(30px); opacity: 0; }
+    0% { 
+        transform: translateY(-100vh) rotate(var(--moon-tilt, -25deg)) translateZ(30px); 
+        opacity: 0; 
+    }
     5% { opacity: 1; }
     95% { opacity: 1; }
-    100% { transform: translateY(100vh) rotate(145deg) translateZ(30px); opacity: 0; }
+    100% { 
+        transform: translateY(100vh) rotate(var(--moon-tilt, -25deg)) translateZ(30px); 
+        opacity: 0; 
+    }
 }
-
 .falling-star {
     position: absolute;
     color: white;
@@ -130,186 +135,142 @@ body {
 }
 
 .animated-heading {
-    font-size: clamp(3rem, 6.5vw, 5.5rem);
     font-weight: 900;
-    line-height: 1.1;
     text-align: center;
-    position: relative;
-    margin-top: 8vh;
-    width: 100%;
+    margin-top: 30vh;
+    margin-bottom: 0vh;
     z-index: 200;
     filter: drop-shadow(0 0 20px rgba(255,255,255,0.3));
 }
 
 .animated-heading .line { 
     display: block; 
-    margin-bottom: 15px; 
-    overflow: hidden; 
+    margin-bottom: -2px; 
+    font-size: 0;
 }
 
 .animated-heading .line span {
     display: inline-block;
+    font-size: clamp(1.5rem, 6vw, 5.5rem);
     opacity: 0;
-    transform: translateX(400px) translateZ(30px);
+    transform: translateX(400px);
     background: linear-gradient(45deg, #ff0040, #ff8000, #ffee00, #00ff40, #00e5ff, #2b65ff, #a200ff);
     background-size: 400% 400%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: 
+    /* animation: letterRight 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
+               gradientFlow 14s linear infinite; */
+      animation: 
         letterRight 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
         gradientFlow 14s linear infinite,
         premiumWave 4s ease-in-out infinite;
-    text-shadow: 
-        0 0 5px rgba(255, 255, 255, 0.433),
-        0 0 20px rgba(255, 255, 255, 0.3),
-        0 8px 25px rgba(0, 0, 0, 0.7);
 }
 
 @keyframes letterRight {
-    0% { 
-        opacity: 0; 
-        transform: translateX(400px) translateZ(30px) rotateY(90deg) scale(0.5); 
-    }
-    100% { 
-        opacity: 1; 
-        transform: translateX(0) translateZ(30px) rotateY(0deg) scale(1); 
-    }
+    0% { opacity: 0; transform: translateX(400px) rotateY(90deg) scale(0.5); }
+    100% { opacity: 1; transform: translateX(0) rotateY(0deg) scale(1); }
 }
 
 @keyframes gradientFlow {
-    0%   { background-position: 0% 50%; }
-    50%  { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% { background-position: 0% 50%; }
+    100% { background-position: 300% 50%; }
 }
 
-@keyframes premiumWave {
-    0%, 100% { 
-        transform: translateX(0) translateZ(30px) translateY(0) rotateZ(0deg) scale(1); 
-    }
-    25% { 
-        transform: translateX(0) translateZ(30px) translateY(-3px) rotateZ(0.8deg) scale(1.02); 
-    }
-    50% { 
-        transform: translateX(0) translateZ(30px) translateY(0) rotateZ(0deg) scale(1); 
-    }
-    75% { 
-        transform: translateX(0) translateZ(30px) translateY(3px) rotateZ(-0.8deg) scale(0.98); 
-    }
-}
-
+/* Line 1: Assalamualaikum */
 .animated-heading .line:nth-child(1) span:nth-child(1) { animation-delay: 0.3s, 0s; }
-.animated-heading .line:nth-child(1) span:nth-child(2) { animation-delay: 0.9s, 0s, 0.1s; }
-.animated-heading .line:nth-child(1) span:nth-child(3) { animation-delay: 1.5s, 0s, 0.2s; }
-.animated-heading .line:nth-child(1) span:nth-child(4) { animation-delay: 2.1s, 0s, 0.3s; }
-.animated-heading .line:nth-child(1) span:nth-child(5) { animation-delay: 2.7s, 0s, 0.4s; }
-.animated-heading .line:nth-child(1) span:nth-child(6) { animation-delay: 3.3s, 0s, 0.5s; }
-.animated-heading .line:nth-child(1) span:nth-child(7) { animation-delay: 3.9s, 0s, 0.6s; }
-.animated-heading .line:nth-child(1) span:nth-child(8) { animation-delay: 4.5s, 0s, 0.7s; }
-.animated-heading .line:nth-child(1) span:nth-child(9) { animation-delay: 5.1s, 0s, 0.8s; }
-.animated-heading .line:nth-child(1) span:nth-child(10) { animation-delay: 5.7s, 0.9s; }
-.animated-heading .line:nth-child(1) span:nth-child(11) { animation-delay: 6.3s, 0s, 1s; }
-.animated-heading .line:nth-child(1) span:nth-child(12) { animation-delay: 6.9s, 0s, 1.1s; }
-.animated-heading .line:nth-child(1) span:nth-child(13) { animation-delay: 7.5s, 0s, 1.2s; }
-.animated-heading .line:nth-child(1) span:nth-child(14) { animation-delay: 8.1s, 0s, 1.3s; }
-.animated-heading .line:nth-child(1) span:nth-child(15) { animation-delay: 8.7s, 0s, 1.4s; }
-.animated-heading .line:nth-child(2) span:nth-child(1) { animation-delay: 9.3s, 0s, 1.5s; }
-.animated-heading .line:nth-child(2) span:nth-child(2) { animation-delay: 9.9s, 0s, 1.6s; }
-.animated-heading .line:nth-child(2) span:nth-child(3) { animation-delay: 10.5s, 0s, 1.7s; }
-.animated-heading .line:nth-child(2) span:nth-child(4) { animation-delay: 11.1s, 0s, 1.8s; }
-.animated-heading .line:nth-child(2) span:nth-child(5) { animation-delay: 11.7s, 0s, 1.9s; }
-.animated-heading .line:nth-child(2) span:nth-child(6) { animation-delay: 12.3s, 0s, 2s; }
-.animated-heading .line:nth-child(2) span:nth-child(7) { animation-delay: 12.9s, 0s, 2.1s; }
-.animated-heading .line:nth-child(2) span:nth-child(8) { animation-delay: 13.5s, 0s, 2.2s; }
-.animated-heading .line:nth-child(2) span:nth-child(9) { animation-delay: 14.1s, 0s, 2.3s; }
-.animated-heading .line:nth-child(2) span:nth-child(10) { animation-delay: 14.7s, 0s, 2.4s; }
-.animated-heading .line:nth-child(2) span:nth-child(11) { animation-delay: 15.3s, 0s, 2.5s; }
-.animated-heading .line:nth-child(2) span:nth-child(12) { animation-delay: 15.9s, 0s, 2.6s; }
-.animated-heading .line:nth-child(2) span:nth-child(13) { animation-delay: 16.5s, 0s, 2.7s; }
-.animated-heading .line:nth-child(2) span:nth-child(14) { animation-delay: 17.1s, 0s, 2.8s; }
-.animated-heading .line:nth-child(3) span:nth-child(1) { animation-delay: 17.7s, 0s, 2.9s; }
-.animated-heading .line:nth-child(3) span:nth-child(2) { animation-delay: 18.3s, 0s, 3s; }
-.animated-heading .line:nth-child(3) span:nth-child(3) { animation-delay: 18.9s, 0s, 3.1s; }
-.animated-heading .line:nth-child(3) span:nth-child(4) { animation-delay: 19.5s, 0s, 3.2s; }
-.animated-heading .line:nth-child(3) span:nth-child(5) { animation-delay: 20.1s, 0s, 3.3s; }
-.animated-heading .line:nth-child(3) span:nth-child(6) { animation-delay: 20.7s, 0s, 3.4s; }
-.animated-heading .line:nth-child(3) span:nth-child(7) { animation-delay: 21.3s, 0s, 3.5s; }
-.animated-heading .line:nth-child(3) span:nth-child(8) { animation-delay: 21.9s, 0s, 3.6s; }
-.animated-heading .line:nth-child(3) span:nth-child(9) { animation-delay: 22.5s, 0s, 3.7s; }
-.animated-heading .line:nth-child(3) span:nth-child(10) { animation-delay: 23.1s, 0s, 3.8s; }
-.animated-heading .line:nth-child(3) span:nth-child(11) { animation-delay: 23.7s, 0s, 3.9s; }
+.animated-heading .line:nth-child(1) span:nth-child(2) { animation-delay: 0.6s, 0s; }
+.animated-heading .line:nth-child(1) span:nth-child(3) { animation-delay: 0.9s, 0s; }
+.animated-heading .line:nth-child(1) span:nth-child(4) { animation-delay: 1.2s, 0s; }
+.animated-heading .line:nth-child(1) span:nth-child(5) { animation-delay: 1.5s, 0s; }
+.animated-heading .line:nth-child(1) span:nth-child(6) { animation-delay: 1.8s, 0s; }
+.animated-heading .line:nth-child(1) span:nth-child(7) { animation-delay: 2.1s, 0s; }
+.animated-heading .line:nth-child(1) span:nth-child(8) { animation-delay: 2.4s, 0s; }
+.animated-heading .line:nth-child(1) span:nth-child(9) { animation-delay: 2.7s, 0s; }
+.animated-heading .line:nth-child(1) span:nth-child(10) { animation-delay: 3.0s, 0s; }
+.animated-heading .line:nth-child(1) span:nth-child(11) { animation-delay: 3.3s, 0s; }
+.animated-heading .line:nth-child(1) span:nth-child(12) { animation-delay: 3.6s, 0s; }
+.animated-heading .line:nth-child(1) span:nth-child(13) { animation-delay: 3.9s, 0s; }
+.animated-heading .line:nth-child(1) span:nth-child(14) { animation-delay: 4.2s, 0s; }
+.animated-heading .line:nth-child(1) span:nth-child(15) { animation-delay: 4.5s, 0s; }
+
+/* Line 2: Warahmatullahi */
+.animated-heading .line:nth-child(2) span:nth-child(1) { animation-delay: 4.8s, 0s; }
+.animated-heading .line:nth-child(2) span:nth-child(2) { animation-delay: 5.1s, 0s; }
+.animated-heading .line:nth-child(2) span:nth-child(3) { animation-delay: 5.4s, 0s; }
+.animated-heading .line:nth-child(2) span:nth-child(4) { animation-delay: 5.7s, 0s; }
+.animated-heading .line:nth-child(2) span:nth-child(5) { animation-delay: 6.0s, 0s; }
+.animated-heading .line:nth-child(2) span:nth-child(6) { animation-delay: 6.3s, 0s; }
+.animated-heading .line:nth-child(2) span:nth-child(7) { animation-delay: 6.6s, 0s; }
+.animated-heading .line:nth-child(2) span:nth-child(8) { animation-delay: 6.9s, 0s; }
+.animated-heading .line:nth-child(2) span:nth-child(9) { animation-delay: 7.2s, 0s; }
+.animated-heading .line:nth-child(2) span:nth-child(10) { animation-delay: 7.5s, 0s; }
+.animated-heading .line:nth-child(2) span:nth-child(11) { animation-delay: 7.8s, 0s; }
+.animated-heading .line:nth-child(2) span:nth-child(12) { animation-delay: 8.1s, 0s; }
+.animated-heading .line:nth-child(2) span:nth-child(13) { animation-delay: 8.4s, 0s; }
+.animated-heading .line:nth-child(2) span:nth-child(14) { animation-delay: 8.7s, 0s; }
+.animated-heading .line:nth-child(2) span:nth-child(15) { animation-delay: 8.7s, 0s; }
+
+/* Line 3: Wabarakatuh */
+.animated-heading .line:nth-child(3) span:nth-child(1) { animation-delay: 9.0s, 0s; }
+.animated-heading .line:nth-child(3) span:nth-child(2) { animation-delay: 9.3s, 0s; }
+.animated-heading .line:nth-child(3) span:nth-child(3) { animation-delay: 9.6s, 0s; }
+.animated-heading .line:nth-child(3) span:nth-child(4) { animation-delay: 9.9s, 0s; }
+.animated-heading .line:nth-child(3) span:nth-child(5) { animation-delay: 10.2s, 0s; }
+.animated-heading .line:nth-child(3) span:nth-child(6) { animation-delay: 10.5s, 0s; }
+.animated-heading .line:nth-child(3) span:nth-child(7) { animation-delay: 10.8s, 0s; }
+.animated-heading .line:nth-child(3) span:nth-child(8) { animation-delay: 11.1s, 0s; }
+.animated-heading .line:nth-child(3) span:nth-child(9) { animation-delay: 11.4s, 0s; }
+.animated-heading .line:nth-child(3) span:nth-child(10) { animation-delay: 11.7s, 0s; }
+.animated-heading .line:nth-child(3) span:nth-child(11) { animation-delay: 12.0s, 0s; }
+
+/* Urdu - English khatam hone ke baad */
+.word:nth-child(1) { animation-delay: 12.6s, 0s; }
+.word:nth-child(2) { animation-delay: 13.2s, 0s; }
+.word:nth-child(3) { animation-delay: 13.8s, 0s; }
+.word:nth-child(4) { animation-delay: 14.4s, 0s; }
+.word:nth-child(5) { animation-delay: 15.0s, 0s; }
+
+
 
 .salam-container {
     text-align: center;
-    font-family: 'Noto Nastaliq Urdu', serif;
     direction: rtl;
-    padding: 30px 10px;
-    margin: 3vh 0;
-    position: relative;
+    padding: 20px 5px;
+    margin: 0vh 0 0vh 0;
     filter: drop-shadow(0 0 20px rgba(255,255,255,0.25));
 }
 
 .word {
     display: inline-block;
-    font-size: clamp(2.5rem, 5vw, 4.2rem);
+    font-size: clamp(1.5rem, 5vw, 4.2rem);
     font-weight: 900;
-    margin: 0 10px;
+    margin: 0 3px;
     opacity: 0;
-    transform: translateX(60px) translateZ(50px) scale(0.7) rotateY(60deg);
-    background: linear-gradient(45deg, #b60733, #9f4505, #9f9404, #069351, #2c81be, #1111ac, #74169d, #8000ff);
+    transform: translateX(60px) scale(0.7);
+    background: linear-gradient(45deg, #b60733, #9f4505, #9f9404, #069351, #2c81be, #1111ac, #74169d);
     background-size: 500% 500%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: 
-        premiumEntry 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards,
-        gradientShift 16s linear infinite,
-        royalFloat 4s ease-in-out infinite;
-    text-shadow: 
-        0 0 3px rgba(255, 255, 255, 0.6),
-        0 0 6px rgba(255, 255, 255, 0.3),
-        0 5px 20px rgba(0, 0, 0, 0.9);
+    animation: premiumEntry 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards,
+               gradientShift 16s linear infinite;
 }
 
-.word:nth-child(1) { animation-delay: 0.4s, 0s, 0s; }
-.word:nth-child(2) { animation-delay: 1.7s, 0s, 0.3s; }
-.word:nth-child(3) { animation-delay: 3s, 0s, 0.6s; }
-.word:nth-child(4) { animation-delay: 4.3s, 0s, 0.9s; }
-.word:nth-child(5) { animation-delay: 5.6s, 0s, 1.2s; }
+.word:nth-child(1) { animation-delay: 0.4s, 0s; }
+.word:nth-child(2) { animation-delay: 1.7s, 0s; }
+.word:nth-child(3) { animation-delay: 3s, 0s; }
+.word:nth-child(4) { animation-delay: 4.3s, 0s; }
+.word:nth-child(5) { animation-delay: 5.6s, 0s; }
 
 @keyframes premiumEntry {
-    0% { 
-        opacity: 0; 
-        transform: translateX(60px) translateZ(50px) scale(0.7) rotateY(60deg) rotateX(20deg); 
-    }
-    60% {
-        transform: translateX(-5px) translateZ(50px) scale(1.05) rotateY(-5deg) rotateX(0deg);
-    }
-    100% { 
-        opacity: 1; 
-        transform: translateX(0) translateZ(50px) scale(1) rotateY(0deg) rotateX(0deg); 
-    }
+    0% { opacity: 0; transform: translateX(60px) scale(0.7); }
+    100% { opacity: 1; transform: translateX(0) scale(1); }
 }
 
 @keyframes gradientShift {
-    0%   { background-position: 0% 50%; }
-    50%  { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-@keyframes royalFloat {
-    0%, 100% { 
-        transform: translateX(0) translateZ(50px) translateY(0) rotateZ(0deg) scale(1); 
-    }
-    25% { 
-        transform: translateX(0) translateZ(50px) translateY(-5px) rotateZ(1deg) scale(1.04); 
-    }
-    50% { 
-        transform: translateX(0) translateZ(50px) translateY(0) rotateZ(0deg) scale(1); 
-    }
-    75% { 
-        transform: translateX(0) translateZ(50px) translateY(5px) rotateZ(-1deg) scale(0.96); 
-    }
+    0% { background-position: 0% 50%; }
+    100% { background-position: 300% 50%; }
 }
 
 .hero-01 {
@@ -470,7 +431,7 @@ body {
 .eid-main-box {
     position: relative;
     width: 100%;
-    min-height: 560px;
+    min-height: 850px;
     background: linear-gradient(145deg,  #42a5f5, #4ee955,#a75ed7, #a4801d, #0f84dd);
     border-radius: 0 0 55px 55px;
     padding: 45px 40px 35px 40px;
@@ -496,33 +457,13 @@ body {
     85.68% { border-color: #9400d3; }
     100% { border-color: #ff0000; }
 }
-/* .fixed-star {
+
+.fixed-star {
     position: absolute;
     top: 10px;
     left: 51%;
     transform: translateX(-90%);
     font-size: 2rem;
-    color: #e6e5df;
-    text-shadow: 0 0 25px rgb(202, 201, 197);
-    z-index: 35;
-}
-
-.moon-icon {
-    position: absolute;
-    top: 2px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    filter: drop-shadow(0 0 75px rgb(0, 255, 128));
-    z-index: 30;
-} */
-
-.fixed-star {
-    position: absolute;
-    top: 8px;
-    left: 51%;
-    transform: translateX(-90%);
-    font-size: 1rem;
     color: #e6e5df;
     text-shadow: 0 0 25px rgb(202, 201, 197);
     z-index: 35;
@@ -544,14 +485,14 @@ body {
 /* MOBILE - 768px se neeche */
 @media (max-width: 768px) {
     .fixed-star {
-        top: 18px !important;
+        top: 10px !important;
         transform: translateX(-85%) !important; /* mobile me thoda adjust */
-        font-size: 2rem !important;
+        font-size: 1.8rem !important;
         text-shadow: 0 0 18px rgb(202, 201, 197) !important;
     }
     
     .moon-icon {
-        top: 4px !important;
+        top: -2px !important;
         font-size: 2.5rem !important;
         filter: drop-shadow(0 0 40px rgb(0, 255, 128)) !important;
     }
@@ -561,7 +502,7 @@ body {
 @media (max-width: 480px) {
     .fixed-star {
         top: 8px !important;
-        font-size: 1rem !important;
+        font-size: 1.5rem !important;
         transform: translateX(-80%) !important;
     }
     
@@ -569,8 +510,6 @@ body {
         font-size: 2.2rem !important;
     }
 }
-
-
 
 .eid-heading {
     font-family: 'Amiri', serif;
@@ -707,8 +646,8 @@ body {
 
 .corner-sparkle-1 { top: 45px; left: 45px; animation-delay: 1.5s; }
 .corner-sparkle-2 { top: 65px; right: 45px; animation-delay: 1.5s; }
-.corner-sparkle-3 { bottom: 70px; left: 40px; animation-delay: 1.5s; }
-.corner-sparkle-4 { bottom: 65px; right: 35px; animation-delay: 1.5s; }
+.corner-sparkle-3 { bottom: 100px; left: 40px; animation-delay: 1.5s; }
+.corner-sparkle-4 { bottom: 100px; right: 45px; animation-delay: 1.5s; }
 
 @keyframes sparkle {
     0%, 100% { opacity: 0.7; transform: scale(1) rotate(0deg); }
@@ -1300,12 +1239,10 @@ body {
     display: none !important;
 }
 
-
-
-/* ========== MOBILE - LEFT RIGHT SE BADA KIYA ========== */
+/* MOBILE RESPONSIVE - YEHI FIX HAI */
 @media (max-width: 768px) {
     .wrapper {
-        padding: 0 !important; /* side padding hata diya */
+        padding: 0 15px;
     }
 
     .mode-box {
@@ -1315,241 +1252,297 @@ body {
         font-size: 9px !important;
     }
 
-    /* BOX LEFT RIGHT SE BADA */
+    .animated-heading {
+        margin-top: 5vh;
+        padding: 0 10px;
+    }
+
+    .salam-container {
+        margin: 2vh 0;
+    }
+
+    .word {
+        margin: 0 4px;
+    }
+
+    .content-love {
+        margin: 3vh auto 8vh auto;
+        gap: 20px;
+    }
+
+    .greeting-btn {
+        padding: 14px 30px;
+        font-size: 0.95rem;
+    }
+
+    .eid-main-box {
+        padding: 30px 20px 35px 20px !important;
+        min-height: auto !important;
+    }
+
+    .top-blue-box {
+        height: 80px !important;
+    }
+
+    .eid-heading {
+        margin-top: 35px !important;
+    }
+
+    .back-btn, .NAME-btn {
+        position: relative !important;
+        margin: 10px 5px !important;
+        display: inline-block !important;
+        bottom: auto !important;
+        left: auto !important;
+        right: auto !important;
+        width: 45% !important;
+    }
+
+    .profile-box {
+        flex-direction: column;
+    }
+
+    .qr-box {
+        width: 100px;
+        height: 100px;
+    }
+
+    .social-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .social-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+
+/* EID INFO POPUP */
+.eid-info-popup {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 10005;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.eid-info-box {
+    background: linear-gradient(145deg, #112240, #0a192f);
+    border: 4px solid transparent;
+    border-image: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff) 1;
+    border-radius: 20px;
+    padding: 70px 20px;
+    max-width: 600px;
+    width: 92%;
+    max-height: 88vh;
+    overflow-y: auto;
+    position: relative;
+    animation: popScale3D 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 0 40px rgba(0, 255, 136, 0.5);
+}
+
+.close-eid-info {
+    position: absolute;
+    top: 8px;
+    right: 15px;
+    font-size: 2rem;
+    color: #00ff88;
+    cursor: pointer;
+    font-weight: 900;
+    transition: 0.3s;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-eid-info:hover {
+    color: #ff0040;
+    transform: rotate(90deg);
+}
+
+.eid-info-box h2 {
+    text-align: center;
+    font-size: clamp(1.3rem, 6vw, 2.5rem);
+    background: linear-gradient(45deg, #ff0040, #ff8000, #ffee00, #00ff40, #00e5ff, #2b65ff);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientFlow 8s linear infinite;
+    margin-bottom: 18px;
+    margin-top: 30px;
+    font-weight: 900;
+}
+
+.eid-info-content {
+    color: #fff;
+    font-size: clamp(0.85rem, 3.5vw, 1.1rem);
+    line-height: 1.7;
+    font-weight: 500;
+}
+
+.eid-info-content p {
+    margin-bottom: 14px;
+}
+
+.eid-info-content ul {
+    margin: 14px 0 14px 20px;
+    list-style: none;
+    padding-left: 0;
+}
+
+.eid-info-content ul li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 28px;
+}
+
+.eid-info-content ul li::before {
+    content: '🌙';
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.eid-dua {
+    text-align: center;
+    margin-top: 20px;
+    padding: 14px;
+    background: rgba(0, 255, 136, 0.1);
+    border-radius: 12px;
+    border: 2px solid rgba(0, 255, 136, 0.3);
+    font-size: clamp(0.9rem, 3.5vw, 1.2rem);
+}
+
+/* MOBILE FIX */
+@media (max-width: 600px) {
+    .mode-box {
+        top: 30px !important;
+        right: 12px !important;
+        padding: 6px 12px !important;
+    }
+    
+    .animated-heading {
+        margin-top: 12vh !important;
+    }
+    
+    .salam-container {
+        margin: 5vh 0 3vh 0 !important;
+    }
+    
+    .content-love {
+        margin: 5vh auto 6vh auto !important;
+    }
+    
+    .social-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .profile-box {
+        flex-direction: column;
+        text-align: center;
+    }
+    
     .eid-stack-container {
-        width: 100% !important;
-        max-width: 100% !important;
-        transform: scale(0.9);
-        transform-origin: center;
+        width: 88% !important;
+        max-width: 430px !important;
         margin: 0 auto;
+        transform: scale(0.94);
+        transform-origin: center;
     }
     
     .top-blue-box {
-        height: 75px !important;
-        font-size: clamp(1.8rem, 5.5vw, 2.3rem) !important;
-        border: 7px solid #ff0000 !important;
-        border-radius: 25px 25px 0 0 !important;
+        height: clamp(52px, 8.5vw, 75px) !important;
+        font-size: clamp(1.25rem, 4.5vw, 2.6rem) !important;
+        border: 4px solid #ff0000 !important;
     }
     
     .eid-main-box {
-        padding: 22px 25px 48px 25px !important; /* left right padding bada diya */
-        min-height: auto !important;
-        border: 7px solid #ff9800 !important;
+        padding: 24px 14px 52px 14px !important;
+        border: 4px solid #ff9800 !important;
         border-top: none !important;
-        border-radius: 0 0 25px 25px !important;
+        border-radius: 0 0 30px 30px !important;
     }
     
     .moon-icon {
-        font-size: clamp(1.5rem, 4.8vw, 2rem) !important;
+        font-size: clamp(1.6rem, 5.2vw, 2.6rem) !important;
         top: 4px !important;
     }
     
     .eid-heading {
-        font-size: clamp(1.7rem, 6.5vw, 2.3rem) !important;
-        margin-top: 28px !important;
-        margin-bottom: 14px !important;
-        line-height: 1 !important;
+        font-size: clamp(1.25rem, 5.2vw, 3.1rem) !important;
+        margin-top: 30px !important;
+        margin-bottom: 16px !important;
     }
     
     .animals-container {
-        gap: clamp(10px, 3.5vw, 18px) !important;
-        margin: 12px 0 !important;
+        gap: clamp(7px, 2.3vw, 26px) !important;
+        margin: 14px 0 !important;
     }
     
     .animal {
-        font-size: clamp(1.5rem, 5vw, 2rem) !important;
+        font-size: clamp(1.25rem, 5.2vw, 2.3rem) !important;
     }
     
     .eid-message {
-        font-size: clamp(0.7rem, 3.2vw, 0.95rem) !important;
-        line-height: 1.45 !important;
-        margin: 8px 0 !important;
-        padding: 0 16px !important; /* text ke liye bhi padding badhaya */
-        text-shadow: 0 2px 0 #fff, 0 4px 6px rgba(0,0,0,0.5) !important;
+        font-size: clamp(0.7rem, 2.5vw, 1.15rem) !important;
+        line-height: 1.55 !important;
+        margin: 9px 0 !important;
+        padding: 0 10px !important;
     }
     
     .eid-footer {
-        font-size: clamp(0.8rem, 3.5vw, 1.05rem) !important;
-        margin: 6px 0 38px 0 !important;
-        padding: 0 16px !important;
-        text-shadow: 0 2px 0 #fff, 0 4px 6px rgba(0,0,0,0.5) !important;
-    }
-    
-    .corner-sparkle {
-        font-size: 1.3rem !important;
-    }
-    
-    .corner-sparkle-1 { 
-        top: 35px !important; 
-        left: 18px !important; 
-    }
-    .corner-sparkle-2 { 
-        top: 50px !important; 
-        right: 18px !important; 
-    }
-    .corner-sparkle-3 { 
-        bottom: 50px !important; 
-        left: 15px !important; 
-    }
-    .corner-sparkle-4 { 
-        bottom: 48px !important; 
-        right: 15px !important; 
+        font-size: clamp(0.8rem, 3.2vw, 1.35rem) !important;
+        margin: 7px 0 38px 0 !important;
+        padding: 0 10px 0 10px !important;
     }
     
     .back-btn, .NAME-btn {
         position: absolute !important;
         bottom: 10px !important;
-        padding: 7px 14px !important;
-        font-size: 0.75rem !important;
-        border-radius: 15px !important;
+        width: auto !important;
+        padding: clamp(7px, 2.3vw, 10px) clamp(12px, 3.3vw, 18px) !important;
+        font-size: clamp(0.7rem, 2.4vw, 0.9rem) !important;
+        border-radius: 20px !important;
     }
     
     .back-btn {
-        left: 4% !important;
-        border: 5px solid #FFD700 !important;
+        left: 3% !important;
     }
     
     .NAME-btn {
-        right: 4% !important;
+        right: 3% !important;
     }
     
     #salamPage {
-        padding: 0 !important;
+        padding: 18px !important;
+    }
+    
+    .eid-info-popup {
+        padding: 10px !important;
+    }
+    
+    .eid-info-box {
+        width: 95% !important;
+        padding: 22px 16px !important;
+        border-radius: 18px !important;
+        max-height: 90vh !important;
+    }
+    
+    .close-eid-info {
+        top: 6px !important;
+        right: 12px !important;
+        font-size: 1.8rem !important;
     }
 }
-
-@media (max-width: 480px) {
-    .eid-stack-container {
-        width: 100% !important;
-        transform: scale(0.88);
-    }
-
-
-    /* ========== MOBILE - BOX LEFT RIGHT SE CHAUDA ========== */
-@media (max-width: 768px) {
-    body {
-        padding: 0 !important; /* side space hatao */
-    }
-    
-    .eid-stack-container {
-        width: 100% !important; /* full width */
-        max-width: 100% !important;
-        transform: scale(0.9); /* thoda chhota scale taaki fit ho */
-        margin: 0 auto;
-    }
-    
-    .eid-main-box {
-        padding: 25px 28px 50px 28px !important; /* left-right padding badhaya */
-    }
-    
-    .eid-message {
-        padding: 0 18px !important; /* text bhi chauda */
-    }
-    
-    .eid-footer {
-        padding: 0 18px !important;
-    }
-    
-    .corner-sparkle-1 { left: 12px !important; }
-    .corner-sparkle-2 { right: 12px !important; }
-    .corner-sparkle-3 { left: 10px !important; }
-    .corner-sparkle-4 { right: 10px !important; }
-    
-    .back-btn { left: 3% !important; }
-    .name-btn { right: 3% !important; }
-}
-
-@media (max-width: 480px) {
-    .eid-stack-container {
-        transform: scale(0.88);
-    }
-    .eid-main-box {
-        padding: 25px 22px 50px 22px !important;
-    }
-}
-    
-    .eid-main-box {
-        padding: 22px 20px 48px 20px !important;
-    }
-}
-
-
-/* DESKTOP + MOBILE DONO KE LIYE */
-.eid-main-box {
-    position: relative;
-}
-
-/* /* MOON + STAR EK KE UPAR EK */
-.moon-icon {
-    position: absolute;
-    top: 5px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 1.8rem;
-    z-index: 2;
-}
-
-.fixed-star {
-    position: absolute;
-    top: -2px; /* moon ke bilkul upar */
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 1rem; /* STAR CHHOTA */
-    z-index: 3;
-} */
-
-/* ANIMALS NEECHE SHIFT */
-.animals-container {
-    margin-top: 30px !important; /* heading ke neeche */
-}
-
-/* ========== MOBILE CODE ========== */
-@media (max-width: 768px) {
-    body { padding: 0 !important; }
-    
-    .eid-stack-container {
-        width: 100% !important;
-        max-width: 100% !important;
-        transform: scale(0.9);
-    }
-    
-    .eid-main-box {
-        padding: 40px 28px 50px 28px !important; /* upar space star ke liye */
-    }
-    
-    /* .moon-icon {
-        font-size: 1.6rem !important;
-        top: 8px !important;
-    }
-    
-    .fixed-star {
-        font-size: 0.85rem !important; /* MOBILE ME AUR CHHOTA */
-        top: 4px !important;
-         transform: translateX(-5px) !important; /* -5px right me shift */
-    } */
-    
-    .eid-heading {
-        margin: 35px 0 10px 0 !important;
-    }
-    
-    .animals-container {
-        margin-top: 25px !important; /* NEECHE AAYA */
-        font-size: 1.6rem !important;
-        gap: 12px !important;
-    }
-    
-    .eid-message, .eid-footer {
-        padding: 0 18px !important;
-    }
-    
-    .corner-sparkle-1 { left: 12px !important; top: 50px !important; }
-    .corner-sparkle-2 { right: 12px !important; top: 60px !important; }
-}
-
-@media (max-width: 480px) {
-    .eid-stack-container { transform: scale(0.88); }
-    .eid-main-box { padding: 40px 22px 50px 22px !important; }
-}
-
-
-
