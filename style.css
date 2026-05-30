@@ -1495,3 +1495,94 @@ body {
     .eid-stack-container { transform: scale(0.88); }
     .eid-main-box { padding: 40px 22px 50px 22px !important; }
 }
+
+
+/* ========== MOBILE - CRESCENT MOON + STAR + CHAUDA BOX ========== */
+@media (max-width: 768px) {
+    body { 
+        padding: 0 !important; 
+    }
+    
+    .eid-stack-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        transform: scale(0.9);
+    }
+    
+    .eid-main-box {
+        padding: 45px 28px 50px 28px !important; /* upar space moon ke liye */
+    }
+    
+    /* CRESCENT MOON - TAGADA WALA */
+    .moon-icon {
+        position: absolute !important;
+        top: 10px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: 24px !important;
+        height: 24px !important;
+        background: #ffd700 !important;
+        border-radius: 50% !important;
+        box-shadow: 0 0 12px rgba(255, 215, 0, 0.8) !important;
+        z-index: 2 !important;
+    }
+    
+    /* MOON KO CRESCENT BANANE KE LIYE CUT */
+    .moon-icon::after {
+        content: '' !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 7px !important;
+        width: 24px !important;
+        height: 24px !important;
+        background: linear-gradient(135deg, #00d4ff, #7b2fff) !important;
+        border-radius: 50% !important;
+    }
+    
+    /* STAR MOON KE UPAR RIGHT ME */
+    .fixed-star {
+        position: absolute !important;
+        top: 6px !important;
+        left: 50% !important;
+        transform: translateX(7px) !important; /* moon ke right side */
+        font-size: 0.8rem !important;
+        color: #ffd700 !important;
+        filter: drop-shadow(0 0 6px #ffd700) !important;
+        z-index: 3 !important;
+    }
+    
+    /* ANIMALS NEECHE SHIFT */
+    .eid-heading {
+        margin: 35px 0 10px 0 !important;
+    }
+    
+    .animals-container {
+        margin-top: 30px !important;
+        font-size: 1.6rem !important;
+        gap: 12px !important;
+    }
+    
+    .eid-message {
+        padding: 0 18px !important;
+        font-size: 0.85rem !important;
+    }
+    
+    .eid-footer {
+        padding: 0 18px !important;
+        font-size: 0.95rem !important;
+    }
+    
+    .corner-sparkle-1 { left: 12px !important; top: 55px !important; }
+    .corner-sparkle-2 { right: 12px !important; top: 65px !important; }
+    .corner-sparkle-3 { left: 10px !important; }
+    .corner-sparkle-4 { right: 10px !important; }
+    
+    .back-btn { left: 3% !important; }
+    .name-btn { right: 3% !important; }
+}
+
+@media (max-width: 480px) {
+    .eid-stack-container { transform: scale(0.88); }
+    .eid-main-box { padding: 45px 22px 50px 22px !important; }
+}
+
