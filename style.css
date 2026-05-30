@@ -637,6 +637,25 @@ body {
     }
 }
 
+/* .corner-sparkle {
+    position: absolute;
+    font-size: 2rem;
+    animation: sparkle 2s infinite;
+    z-index: 20;
+}
+
+.corner-sparkle-1 { top: 45px; left: 45px; animation-delay: 1.5s; }
+.corner-sparkle-2 { top: 65px; right: 45px; animation-delay: 1.5s; }
+.corner-sparkle-3 { bottom: 100px; left: 40px; animation-delay: 1.5s; }
+.corner-sparkle-4 { bottom: 100px; right: 45px; animation-delay: 1.5s; }
+
+@keyframes sparkle {
+    0%, 100% { opacity: 0.7; transform: scale(1) rotate(0deg); }
+    50% { opacity: 1; transform: scale(2.3) rotate(180deg); }
+} */
+
+
+
 .corner-sparkle {
     position: absolute;
     font-size: 2rem;
@@ -652,6 +671,24 @@ body {
 @keyframes sparkle {
     0%, 100% { opacity: 0.7; transform: scale(1) rotate(0deg); }
     50% { opacity: 1; transform: scale(2.3) rotate(180deg); }
+}
+
+/* MOBILE FIX */
+@media (max-width: 600px) {
+    .corner-sparkle {
+        font-size: 1.2rem; /* Mobile me chhota karo */
+        z-index: 5; /* Button ke niche rahe */
+    }
+    
+    .corner-sparkle-1 { top: 20px; left: 20px; } /* Upar left corner */
+    .corner-sparkle-2 { top: 25px; right: 20px; } /* Upar right corner */
+    .corner-sparkle-3 { bottom: 70px; left: 15px; } /* Niche left, button se upar */
+    .corner-sparkle-4 { bottom: 70px; right: 15px; } /* Niche right, button se upar */
+    
+    @keyframes sparkle {
+        0%, 100% { opacity: 0.5; transform: scale(1) rotate(0deg); }
+        50% { opacity: 0.8; transform: scale(1.6) rotate(180deg); } /* Mobile me kam zoom */
+    }
 }
 
 .back-btn {
