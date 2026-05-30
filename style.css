@@ -546,12 +546,12 @@ body {
     .fixed-star {
         top: 10px !important;
         transform: translateX(-85%) !important; /* mobile me thoda adjust */
-        font-size: 1.8rem !important;
+        font-size: .98rem !important;
         text-shadow: 0 0 18px rgb(202, 201, 197) !important;
     }
     
     .moon-icon {
-        top: -4px !important;
+        top: 4px !important;
         font-size: 2.5rem !important;
         filter: drop-shadow(0 0 40px rgb(0, 255, 128)) !important;
     }
